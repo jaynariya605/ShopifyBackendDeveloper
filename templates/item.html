@@ -1,0 +1,96 @@
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div>{% include 'snippets/header.html' %}</div>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="title"> <h1>Add Item to Inventory Sheet {{id}}</h1></div>
+ <form method="post">{% csrf_token %}
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Arrival</label>
+    <div class="col-sm-10">
+    <input class="form-control" type="datetime-local" name="Arrival" default = None>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-sm-2">Dispatch</div>
+    <div class="col-sm-10">
+    
+        <input class="form-control" type="datetime-local" id="gridCheck1"name ="Dispatch" default = None >
+      
+      
+    </div>
+  </div>
+
+<div class="form-group row">
+    <div class="col-sm-2">Item Name</div>
+    <div class="col-sm-10">
+    
+        <input class="form-control" type="text" id="gridCheck1"name ="Item_Name" required>
+      
+      
+    </div>
+  </div>
+
+   <div class="form-group row">
+    <div class="col-sm-2">Brand</div>
+    <div class="col-sm-10">
+    
+        <input class="form-control" type="text" id="gridCheck1"name ="Brand" required>
+      
+      
+    </div>
+  </div>
+
+   <div class="form-group row">
+    <div class="col-sm-2">Description</div>
+    <div class="col-sm-10">
+    
+        <input class="form-control" type="textarea" id="gridCheck1"name ="Description" default = None >
+      
+      
+    </div>
+  </div>
+
+   <div class="form-group row">
+    <div class="col-sm-2">Qty</div>
+    <div class="col-sm-10">
+    
+        <input class="form-control" type="number" id="gridCheck1"name ="Quantity" required step=1>
+      
+      
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-2">Unit Price</div>
+    <div class="col-sm-10">
+    
+        <input class="form-control" type="number" id="gridCheck1"name ="Unit_Price" required step=0.01>
+      
+      
+    </div>
+  </div>
+   
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" name= "submit" class="btn btn-primary">Submit </button>
+    </div>
+  </div>
+</form>
+
+  </div>
+</body>

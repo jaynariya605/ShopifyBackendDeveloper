@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+	<title> This is Jay Site </title>
+	
+	 <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.2.0/markdown-it.min.js" integrity="sha512-cTQeM/op796Fp1ZUxfech8gSMLT/HvrXMkRGdGZGQnbwuq/obG0UtcL04eByVa99qJik7WlnlQOr5/Fw5B36aw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<div>{% include 'snippets/header.html' %}</div>
+</head>
+
+<body>
+    
+    <div class="container" style="width: 150%;" >
+        <head><h1>Inventory Sheets
+        <form class="nav justify-content-end" method="post">{% csrf_token %}<button class="btn btn-outline-secondary"name ="CID">+ Create Inventory Sheet</button></form>
+        </h1></head>
+        
+      <div class="table-responsive">
+    <table id="myTable" class="table table-striped table-bordered  h-auto">
+        <thead class="table-dark">
+        <tr class="text-center">
+
+        
+        <th scope="col">ItemSheetID</th>
+        <th scope="col">WareHouseId</th>
+        <th scope="col">WareHouseName</th>
+        <th scope="col">Address</th>
+        <th scope="col">Date</th>
+        <th scope="col">Delete</th>
+        <th scope="col">View/Edit</th>
+        
+        </tr>
+        </thead>
+        <tbody>
+            {% for I in Inventories %}
+        <tr class="text-center">
+            
+            <th scop="row">{{I.id}}</th>
+            <td>{{I.Assigned_Warehouse.WareHouseId}}</td>
+            <td>{{I.Assigned_Warehouse.Name}}</td>
+            <td>{{I.Assigned_Warehouse.Address}}</td>
+            <td>{{I.Date}}</td>
+            
+            <td><form method="post">{% csrf_token %}<button class="btn btn-outline-secondary"name ="DID" value= "{{I.id}}">Delete</button></form> </td>
+            <td><form method="post">{% csrf_token %}<button class="btn btn-outline-secondary"name ="ID" value= "{{I.id}}">View/Edit</button></form> </td>
+            
+            
+           
+        </tr>
+            {% endfor %}
+       
+        </tbody>
+    </table>
+</div>
+    </div>
+
+</body>
+
+
+
+</html>
